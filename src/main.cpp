@@ -1,14 +1,7 @@
 #include <Arduino.h>
-#include <Adafruit_Sensor.h>
-#include <Adafruit_BME280.h>
+#include "sensor_readings.h"
+#include "settings.h"
 
-void refresh_readings(); // Declare in the header so that the compiler knows about it before it is called in loop()
-
-#ifndef LED_BUILTIN
-#define LED_BUILTIN 2 // This is valid for my devkit
-#endif
-
-#define SEALEVELPRESSURE_HPA (1013.25)
 Adafruit_BME280 bme; // I2C
 
 void setup()
@@ -33,7 +26,6 @@ void setup()
 void loop()
 {
   // put your main code here, to run repeatedly:
-  refresh_readings();
+  refresh_readings(bme);
   delay(2000);
 }
-

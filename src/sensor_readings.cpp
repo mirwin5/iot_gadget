@@ -1,4 +1,8 @@
-void refresh_readings()
+#include <Arduino.h>
+#include "settings.h"
+#include "sensor_readings.h"
+
+void refresh_readings(Adafruit_BME280 bme)
 {
     float f_temperature;
     float f_humidity;
