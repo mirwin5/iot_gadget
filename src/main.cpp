@@ -1,14 +1,31 @@
 #include <Arduino.h>
 #include "sensor_readings.h"
+#include "TFT_eSPI.h" // Hardware-specific library
 #include "settings.h"
 
 Adafruit_BME280 bme; // I2C
+
+TFT_eSPI tft = TFT_eSPI(); // Invoke custom library
+
+uint16_t bg = TFT_BLACK;
+uint16_t fg = TFT_WHITE;
 
 void setup()
 {
   // put your setup code here, to run once:
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(9600);
+
+  tft.init();
+
+  tft.setRotation(1);
+  tft.setTextColor(fg, bg);
+  tft.fillScreen(bg);
+
+  tft.setCursor(0,0);
+  tft.println("Hello");
+  tft.println("Starting BME Sensor...");
+  delay(5000);
 
   bool status;
 
@@ -21,6 +38,8 @@ void setup()
     while (1)
       ;
   }
+
+  tft.fillScreen(bg); //Clear the screen
 }
 
 void loop()
