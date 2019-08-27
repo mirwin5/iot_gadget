@@ -124,7 +124,7 @@ void readTouch(TFT_eSPI *tft)
     uint16_t x, y;
     if (tft->getTouch(&x, &y))
     {
-        if (x < 3000 && y < 16000)
+        if  (x < 3000 && y < 16000)
         {
             tft->fillRect(220, 160, 70, 40, TFT_BLACK);
             tft->setCursor(220, 160, 2);

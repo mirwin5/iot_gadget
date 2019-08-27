@@ -1,5 +1,5 @@
 #include <Arduino.h>
-//#define DEBUGLOG
+#define DEBUGLOG
 #include "settings.h"
 #include "sensor_readings.h"
 #include "bmp_functions.h"
