@@ -22,12 +22,12 @@
 #include "mqtt_controller.h"
 
 #define LED_PIN 17
-#define S_OPEN_PIN 35
-#define S_CLOSE_PIN 34
-#define W_OPEN_PIN 33
-#define W_OPEN_PIN 32
-#define H_LEVEL_PIN 27
-#define A_LEVEL_PIN 25
+#define S_OPEN_PIN_OUT 35
+#define S_CLOSE_PIN_OUT 34
+#define W_OPEN_PIN_OUT 33
+#define W_OPEN_PIN_OUT 32
+#define H_LEVEL_PIN_IN 27
+#define A_LEVEL_PIN_IN 25
 #define IFTTT_PIN 16
 #define EEPROM_SIZE 2                           // We'll use 1 byte in the EEPROM to store the max number of POSTs
 #define CALIBRATION_FILE "/tft-touch-calData_1" // This file will contain the data from the
