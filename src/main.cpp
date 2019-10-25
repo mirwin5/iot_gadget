@@ -178,7 +178,7 @@ void setup()
   wifiStatus(&tft, &io);
 
   tft.setCursor(10, 0);
-  tft.loadFont("SansSerif-36");
+  tft.loadFont("SansSerif-24");
   tft.println("Right now...");
   DEBUGPRINTLN("Setup complete");
 }
