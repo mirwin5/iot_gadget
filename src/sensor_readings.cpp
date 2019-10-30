@@ -58,11 +58,15 @@ void refresh_readings(Adafruit_BME280 *bme,
 
  // Level Sensor
     Serial.print(level1);
-    Serial.println(" ma");
+    Serial.print(" / ");
+    Serial.print("Lo");
+    Serial.println(" Levels");
     tft->fillRect(5, 120, 200, 30, bg);
     tft->setCursor(5, 120);
     tft->print(level1);
-    tft->println(" ma");
+    tft->print(" / ");
+    tft->print("Lo");
+    tft->println(" Levels");
 
      // Condition
     Serial.print("Open");
