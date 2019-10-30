@@ -28,7 +28,9 @@ void refresh_readings(Adafruit_BME280 *bme,
     // read the input on analog pin 32:
     
     int level1 = analogRead(A_LEVEL_PIN_IN);
-
+    int level2 = digitalRead(H_LEVEL_PIN_IN);
+    
+    
     tft->setTextColor(TFT_YELLOW, bg);
     tft->loadFont("SansSerif-24");
 
@@ -57,15 +59,22 @@ void refresh_readings(Adafruit_BME280 *bme,
     tft->println(" inhg");
 
  // Level Sensor
+    Serial.println(level2);
     Serial.print(level1);
     Serial.print(" / ");
-    Serial.print("Lo");
+    if (level2 == HIGH) Serial.print("Lo");
+    else
+    {
+        if (level2 == LOW) Serial.print("Hi");
+    }
+
     Serial.println(" Levels");
     tft->fillRect(5, 120, 200, 30, bg);
     tft->setCursor(5, 120);
     tft->print(level1);
     tft->print(" / ");
-    tft->print("Lo");
+    if (level2 == HIGH) tft->print("Lo");
+    if (level2 == LOW) tft->print("High");
     tft->println(" Levels");
 
      // Condition

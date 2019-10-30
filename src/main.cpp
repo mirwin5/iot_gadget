@@ -49,6 +49,7 @@ void setup()
   // put your setup code here, to run once:
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(IFTTT_PIN, OUTPUT);
+  pinMode(H_LEVEL_PIN_IN, INPUT_PULLUP);
   Serial.begin(9600);
   DEBUGPRINT("Starting with debug messages");
 
