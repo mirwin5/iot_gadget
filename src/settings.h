@@ -25,9 +25,9 @@
 #define S_OPEN_PIN_OUT 35
 #define S_CLOSE_PIN_OUT 34
 #define W_OPEN_PIN_OUT 33
-#define W_OPEN_PIN_OUT 32
+#define W_OPEN_PIN_OUT 25
 #define H_LEVEL_PIN_IN 27
-#define A_LEVEL_PIN_IN 25
+#define A_LEVEL_PIN_IN 32 // using pin 32 due to wifi usage
 #define IFTTT_PIN 16
 #define EEPROM_SIZE 2                           // We'll use 1 byte in the EEPROM to store the max number of POSTs
 #define CALIBRATION_FILE "/tft-touch-calData_1" // This file will contain the data from the

@@ -14,6 +14,7 @@ void refresh_readings(Adafruit_BME280 *bme,
     float f_pressure;
     float f_altitude;
 
+
     uint16_t bg = TFT_BLACK;
     uint16_t fg = TFT_WHITE;
 
@@ -23,6 +24,10 @@ void refresh_readings(Adafruit_BME280 *bme,
     f_humidity = bme->readHumidity();
     f_pressure = bme->readPressure() / 100.0F * .02953;
     f_altitude = bme->readAltitude(SEALEVELPRESSURE_HPA) * 3.28084;
+
+    // read the input on analog pin 32:
+    
+    int level1 = analogRead(A_LEVEL_PIN_IN);
 
     tft->setTextColor(TFT_YELLOW, bg);
     tft->loadFont("SansSerif-24");
@@ -52,11 +57,11 @@ void refresh_readings(Adafruit_BME280 *bme,
     tft->println(" inhg");
 
  // Level Sensor
-    Serial.print("500");
+    Serial.print(level1);
     Serial.println(" ma");
     tft->fillRect(5, 120, 200, 30, bg);
     tft->setCursor(5, 120);
-    tft->print("500");
+    tft->print(level1);
     tft->println(" ma");
 
      // Condition
