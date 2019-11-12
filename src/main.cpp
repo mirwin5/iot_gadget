@@ -214,4 +214,5 @@ void sensor_readings_update()
 void clock_update()
 {
   refresh_clock(&tft, &chicagoTZ);
+
 }
