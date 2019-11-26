@@ -58,7 +58,7 @@ void refresh_readings(Adafruit_BME280 *bme,
     tft->print(f_pressure);
     tft->println(" inhg");
 
- // Level Sensor
+ // Level Sensor Readings
     Serial.println(level2);
     Serial.print(level1);
     Serial.print(" / ");
@@ -78,11 +78,24 @@ void refresh_readings(Adafruit_BME280 *bme,
     tft->println(" Levels");
 
      // Condition
-    Serial.print("Open");
+    if ((level2 == LOW) || (level1 >= 500)) Serial.print("Closed");
+    
+    else
+    {
+        if ((level2 == HIGH) || (level1 <= 500)) Serial.print("Open");
+    }
+     
+   
     Serial.println(" Condition");
     tft->fillRect(5, 150, 200, 30, bg);
     tft->setCursor(5, 150);
-    tft->print("Open");
+    if ((level2 == LOW) || (level1 >= 500)) tft->print("Closed");
+    else
+    {
+        if ((level2 == HIGH) && (level1 <= 500)) tft->print("Open");
+    }
+  
+     
     tft->println(" Condition");
 
     // Appx altitude
