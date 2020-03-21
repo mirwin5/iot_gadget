@@ -25,7 +25,7 @@
 #define S_OPEN_PIN_OUT 35
 #define S_CLOSE_PIN_OUT 34
 #define W_OPEN_PIN_OUT 33
-#define W_OPEN_PIN_OUT 25
+#define W_CLOSE_PIN_OUT 25
 #define H_LEVEL_PIN_IN 27
 #define A_LEVEL_PIN_IN 32 // using pin 32 due to wifi usage
 #define IFTTT_PIN 16
