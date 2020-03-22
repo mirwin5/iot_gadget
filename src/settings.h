@@ -22,8 +22,8 @@
 #include "mqtt_controller.h"
 
 #define LED_PIN 17
-#define S_OPEN_PIN_OUT 35
-#define S_CLOSE_PIN_OUT 34
+#define S_OPEN_PIN_OUT 12
+#define S_CLOSE_PIN_OUT 16
 #define W_OPEN_PIN_OUT 33
 #define W_CLOSE_PIN_OUT 25
 #define H_LEVEL_PIN_IN 27
