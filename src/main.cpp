@@ -50,10 +50,7 @@ void setup()
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(IFTTT_PIN, OUTPUT);
   pinMode(H_LEVEL_PIN_IN, INPUT_PULLUP);
-  pinMode(S_CLOSE_PIN_OUT, OUTPUT);
   pinMode(W_CLOSE_PIN_OUT, OUTPUT);
-  pinMode(S_OPEN_PIN_OUT, OUTPUT);
-  pinMode(W_OPEN_PIN_OUT, OUTPUT);
   Serial.begin(9600);
   DEBUGPRINT("Starting with debug messages");
 

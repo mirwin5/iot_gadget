@@ -86,9 +86,17 @@ void refresh_readings(Adafruit_BME280 *bme,
     }
     // Valve Condition - Logic 
 
-    // if (level2 == LOW) digitalWrite(W_CLOSE_PIN_OUT, LOW);
+    if (level2 == LOW) digitalWrite(W_CLOSE_PIN_OUT, LOW);
 
-    // if (level1 >= 500) digitalWrite(S_CLOSE_PIN_OUT, LOW);
+    if (level1 >= 500) digitalWrite(W_CLOSE_PIN_OUT, LOW);
+
+    if (level2 == LOW) digitalWrite(IFTTT_PIN, HIGH);
+
+    if (level1 >= 500) digitalWrite(IFTTT_PIN, HIGH);
+
+    if (level2 == HIGH) digitalWrite(IFTTT_PIN, LOW);
+
+    if (level1 >= 500) digitalWrite(IFTTT_PIN, LOW);  
    
     Serial.println(" Condition");
     tft->fillRect(5, 150, 200, 30, bg);
@@ -119,10 +127,7 @@ void refresh_readings(Adafruit_BME280 *bme,
     // Update the postsCounter value in the EEPROM and the TFT
     postsCounter(tft);
 
-    digitalWrite(S_OPEN_PIN_OUT, HIGH);
-    digitalWrite(S_CLOSE_PIN_OUT, HIGH);
-    digitalWrite(W_OPEN_PIN_OUT, HIGH);
-    digitalWrite(W_CLOSE_PIN_OUT, HIGH);
+
     digitalWrite(LED_PIN, LOW);
     Serial.println("-----v2----");
 }
