@@ -27,7 +27,8 @@ void refresh_readings(Adafruit_BME280 *bme,
 
     // read the input on analog pin 32:
     
-re
+    int level1 = analogRead(A_LEVEL_PIN_IN);
+    int level2 = digitalRead(H_LEVEL_PIN_IN);
     
     
     tft->setTextColor(TFT_YELLOW, bg);
