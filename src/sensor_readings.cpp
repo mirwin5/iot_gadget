@@ -27,8 +27,7 @@ void refresh_readings(Adafruit_BME280 *bme,
 
     // read the input on analog pin 32:
     
-    int level1 = analogRead(A_LEVEL_PIN_IN);
-    int level2 = digitalRead(H_LEVEL_PIN_IN);
+re
     
     
     tft->setTextColor(TFT_YELLOW, bg);
@@ -86,17 +85,22 @@ void refresh_readings(Adafruit_BME280 *bme,
     }
     // Valve Condition - Logic 
 
-    if (level2 == LOW) digitalWrite(W_CLOSE_PIN_OUT, LOW);
+    if ((level2 == LOW) || (level1 >= 500)) digitalWrite(W_CLOSE_PIN_OUT, LOW);
 
-    if (level1 >= 500) digitalWrite(W_CLOSE_PIN_OUT, LOW);
+    else
+    {
+        if ((level2 == HIGH) && (level1 <= 500))digitalWrite(W_CLOSE_PIN_OUT, HIGH);
+    }
+    
+    
 
-    if (level2 == LOW) digitalWrite(IFTTT_PIN, HIGH);
+    if ((level2 == LOW) || (level1 >= 500)) digitalWrite(IFTTT_PIN, HIGH);
 
-    if (level1 >= 500) digitalWrite(IFTTT_PIN, HIGH);
-
-    if (level2 == HIGH) digitalWrite(IFTTT_PIN, LOW);
-
-    if (level1 >= 500) digitalWrite(IFTTT_PIN, LOW);  
+    else
+    {
+        if ((level2 == HIGH) && (level1 <= 500))digitalWrite(IFTTT_PIN, LOW);
+    }
+ 
    
     Serial.println(" Condition");
     tft->fillRect(5, 150, 200, 30, bg);
